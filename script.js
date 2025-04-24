@@ -219,6 +219,24 @@ submitButton.addEventListener('click', async () => {
   );
 
   const ws = utils.json_to_sheet(exportData);
+
+  // Apply column formatting
+  ws['!cols'] = [
+    { wch: 30 }, // Control Domain
+    { wch: 25 }, // SFDC Mapping
+    { wch: 20 }, // Framework
+    { wch: 30 }, // Framework Mapping
+    { wch: 50 }  // Findings
+  ];
+
+  // Apply basic style formatting to wrap and center align (partial browser support)
+  Object.keys(ws).forEach(key => {
+    if (!key.startsWith('!')) {
+      ws[key].s = {
+        alignment: { horizontal: 'center', vertical: 'center', wrapText: true }
+      };
+    }
+  });
   const wb = utils.book_new();
   utils.book_append_sheet(wb, ws, 'Audit Results');
   writeFile(wb, safeFilename);
@@ -242,3 +260,4 @@ fileUpload.addEventListener('change', (e) => {
   };
   reader.readAsText(file);
 });
+
