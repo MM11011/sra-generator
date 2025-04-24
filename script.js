@@ -9,6 +9,7 @@ const submitButton = document.getElementById('submitButton');
 let auditData = [];
 
 const allAuditRows = [
+  // GDPR and PCI-DSS mappings added to each applicable domain below
   {
     domain: 'Access Control',
     sfdc: ['Profiles', 'Permission Sets', 'Sharing Rules'],
@@ -17,7 +18,9 @@ const allAuditRows = [
       'ISO 27001': 'A.9.2',
       'COBIT': 'DSS05.04',
       'HIPAA': '§164.308(a)(4)',
-      'SOC 2': 'CC6.1'
+      'SOC 2': 'CC6.1',
+      'GDPR': 'Art. 32(1)(b)',
+      'PCI-DSS': '7.1'
     }
   },
   {
@@ -28,7 +31,9 @@ const allAuditRows = [
       'ISO 27001': 'A.12.4',
       'COBIT': 'DSS01.05',
       'HIPAA': '§164.312(b)',
-      'SOC 2': 'CC7.2'
+      'SOC 2': 'CC7.2',
+      'GDPR': 'Art. 30',
+      'PCI-DSS': '10.2'
     }
   },
   {
@@ -39,7 +44,9 @@ const allAuditRows = [
       'ISO 27001': 'A.10.1',
       'COBIT': 'DSS05.10',
       'HIPAA': '§164.312(a)(2)(iv)',
-      'SOC 2': 'CC6.6'
+      'SOC 2': 'CC6.6',
+      'GDPR': 'Art. 32(1)(a)',
+      'PCI-DSS': '3.4, 4.1'
     }
   },
   {
@@ -50,7 +57,9 @@ const allAuditRows = [
       'ISO 27001': 'A.16.1',
       'COBIT': 'DSS02',
       'HIPAA': '§164.308(a)(6)',
-      'SOC 2': 'CC7.5'
+      'SOC 2': 'CC7.5',
+      'GDPR': 'Art. 33',
+      'PCI-DSS': '12.10'
     }
   },
   {
@@ -61,7 +70,9 @@ const allAuditRows = [
       'ISO 27001': 'A.12.3',
       'COBIT': 'DSS04.01',
       'HIPAA': '§164.308(a)(7)',
-      'SOC 2': 'CC7.4'
+      'SOC 2': 'CC7.4',
+      'GDPR': 'Art. 32(1)(c)',
+      'PCI-DSS': '12.1'
     }
   },
   {
@@ -70,7 +81,9 @@ const allAuditRows = [
     frameworks: {
       'NIST 800-53': 'CM-6',
       'ISO 27001': 'A.12.1.2',
-      'COBIT': 'BAI09.01'
+      'COBIT': 'BAI09.01',
+      'GDPR': 'Art. 25',
+      'PCI-DSS': '2.2'
     }
   },
   {
@@ -79,7 +92,9 @@ const allAuditRows = [
     frameworks: {
       'NIST 800-53': 'IA-2',
       'ISO 27001': 'A.9.4',
-      'COBIT': 'DSS05.03'
+      'COBIT': 'DSS05.03',
+      'GDPR': 'Art. 32(1)(d)',
+      'PCI-DSS': '8.1'
     }
   },
   {
@@ -87,7 +102,9 @@ const allAuditRows = [
     sfdc: ['Event Monitoring Analytics'],
     frameworks: {
       'NIST 800-53': 'SI-4',
-      'ISO 27001': 'A.12.4.1'
+      'ISO 27001': 'A.12.4.1',
+      'GDPR': 'Art. 32(1)(c)',
+      'PCI-DSS': '10.6'
     }
   },
   {
@@ -95,7 +112,9 @@ const allAuditRows = [
     sfdc: ['Shield Policies'],
     frameworks: {
       'NIST 800-53': 'PL-2',
-      'ISO 27001': 'A.5.1.1'
+      'ISO 27001': 'A.5.1.1',
+      'GDPR': 'Art. 24',
+      'PCI-DSS': '12.2'
     }
   },
   {
@@ -103,7 +122,9 @@ const allAuditRows = [
     sfdc: ['TLS Configuration', 'IP Whitelisting'],
     frameworks: {
       'NIST 800-53': 'SC-7',
-      'ISO 27001': 'A.13.1.1'
+      'ISO 27001': 'A.13.1.1',
+      'GDPR': 'Art. 5(1)(f)',
+      'PCI-DSS': '1.2'
     }
   }
 ];
