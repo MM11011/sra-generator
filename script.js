@@ -194,6 +194,8 @@ saveButton.addEventListener('click', () => {
 });
 
 submitButton.addEventListener('click', async () => {
+  const filename = prompt("Enter a filename for your Excel export (without extension):", "Audit_Report_With_Findings");
+  const safeFilename = filename ? filename.trim().replace(/[^a-zA-Z0-9_-]/g, '_') + ".xlsx" : "Audit_Report_With_Findings.xlsx";
   document.querySelectorAll('textarea').forEach(textarea => {
     const rowIdx = textarea.dataset.row;
     const ctrlIdx = textarea.dataset.ctrl;
@@ -219,7 +221,7 @@ submitButton.addEventListener('click', async () => {
   const ws = utils.json_to_sheet(exportData);
   const wb = utils.book_new();
   utils.book_append_sheet(wb, ws, 'Audit Results');
-  writeFile(wb, 'Audit_Report_With_Findings.xlsx');
+  writeFile(wb, safeFilename);
 });
 
 fileUpload.addEventListener('change', (e) => {
